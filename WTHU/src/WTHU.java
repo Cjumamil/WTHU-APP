@@ -69,7 +69,7 @@ public class WTHU {
         }else { // is hour is < 12 
         	isAlarmAM = true; // then it's AM
         }
-                
+                //test
         
         System.out.println("Alarm set for: " + alarmHour + ":" + alarmMinute + " " + amPm);
 
