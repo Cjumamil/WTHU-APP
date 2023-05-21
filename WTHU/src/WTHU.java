@@ -24,8 +24,8 @@ public class WTHU {
     public static void main(String[] args) {
     	
     	//set up frame
-        frame = new JFrame("WTHU - Wake The Hell Up"); // Create a new frame
-        frame.setSize(700, 1000); // Set the size of the frame
+        frame = new JFrame(""); // Create a new frame
+        frame.setSize(300, 350); // Set the size of the frame wxh
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -37,11 +37,11 @@ public class WTHU {
                 setTimerDuration();
             }
         });
-        
-
-    	
-
         panel.add(button);
+        
+        JPanel alarms = new JPanel();
+        
+        
         frame.add(panel);
 
         frame.setVisible(true); // Make the frame visible
@@ -70,8 +70,19 @@ public class WTHU {
         	isAlarmAM = true; // then it's AM
         }
                 //test
+        if(alarmHour>=10&&alarmMinute>=10) {
+        	System.out.println("Alarm set for: " + alarmHour + ":" + alarmMinute + " " + amPm);
+        }
+        else if(alarmHour<=10&&alarmMinute>=10) {
+        	System.out.println("Alarm set for: 0" + alarmHour + ":" + alarmMinute + " " + amPm);
+        }
+        else if(alarmHour<=10&&alarmMinute<=10) {
+        	System.out.println("Alarm set for: 0" + alarmHour + ":0" + alarmMinute + " " + amPm);
+        }
+        else {
+        	System.out.println("Alarm set for: " + alarmHour + ":0" + alarmMinute + " " + amPm);
+        }
         
-        System.out.println("Alarm set for: " + alarmHour + ":" + alarmMinute + " " + amPm);
 
         // localTime will be startTime of timer
         
@@ -135,7 +146,7 @@ public class WTHU {
             @Override
             public void run() {
                 // Code to execute when the alarm goes off
-                JOptionPane.showMessageDialog(frame, "Wake The Hell Up!");
+                JOptionPane.showMessageDialog(frame, "Alarm Time Up!");
             }
         };
 
